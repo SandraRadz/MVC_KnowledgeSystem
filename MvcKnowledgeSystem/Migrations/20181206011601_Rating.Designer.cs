@@ -9,7 +9,7 @@ using MvcKnowledgeSystem.Models;
 namespace MvcKnowledgeSystem.Migrations
 {
     [DbContext(typeof(MvcKnowledgeSystemContext))]
-    [Migration("20181206010212_Rating")]
+    [Migration("20181206011601_Rating")]
     partial class Rating
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
