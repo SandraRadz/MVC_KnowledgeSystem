@@ -15,6 +15,8 @@ namespace MvcKnowledgeSystem.Models
         public string name { get; set; }
         [Display(Name = "Статус")]
         public string role { get; set; }
+        [Display(Name = "Уміння")]
+        public string Skill { get; set; }
         [Display(Name = "Логін")]
         public string login { get; set; }
         [Display(Name = "Пароль")]

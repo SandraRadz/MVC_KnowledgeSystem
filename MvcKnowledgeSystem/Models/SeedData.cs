@@ -23,6 +23,7 @@ namespace MvcKnowledgeSystem.Models
                      {
                          name = "Alise May",
                          role = "student",
+                         Skill= "C++",
                          login = "Alise",
                          password ="1212"
                      },
@@ -31,6 +32,7 @@ namespace MvcKnowledgeSystem.Models
                      {
                          name = "Tom Cat",
                          role = "admin",
+                         Skill = "Java",
                          login = "cat",
                          password = "1234"
                      },
@@ -39,6 +41,7 @@ namespace MvcKnowledgeSystem.Models
                      {
                          name = "Oleksandra Radzievska",
                          role = "admin",
+                         Skill = "C#",
                          login = "SandraRadz",
                          password = "1998"
                      },
@@ -47,6 +50,7 @@ namespace MvcKnowledgeSystem.Models
                    {
                        name = "Maryna",
                        role = "student",
+                       Skill = "C",
                        login = "Mari",
                        password = "0000"
                    }
