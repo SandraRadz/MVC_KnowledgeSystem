@@ -19,8 +19,13 @@ namespace MvcKnowledgeSystem.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string userSkill, string searchString)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.User
+                                            orderby m.Skill
+                                            select m.Skill;
+
             var movies = from m in _context.User
                          select m;
 
@@ -29,9 +34,18 @@ namespace MvcKnowledgeSystem.Controllers
                 movies = movies.Where(s => s.name.Contains(searchString));
             }
 
-            return View(await movies.ToListAsync());
-        }
+            if (!String.IsNullOrEmpty(userSkill))
+            {
+                movies = movies.Where(x => x.Skill == userSkill);
+            }
 
+            var userSkillVM = new UserSkillViewModel();
+            userSkillVM.Skill = new SelectList(await genreQuery.Distinct().ToListAsync());
+            userSkillVM.Users = await movies.ToListAsync();
+            userSkillVM.SearchString = searchString;
+
+            return View(userSkillVM);
+        }
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcKnowledgeSystem.Models.User>
+﻿@model MvcKnowledgeSystem.Models.UserSkillViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -12,6 +12,10 @@
 
 <form asp-controller="Users" asp-action="Index" method="get">
     <p>
+        <select asp-for="UserSkill" asp-items="Model.Skill">
+            <option value="">All</option>
+        </select>
+
         Title: <input type="text" name="SearchString">
         <input type="submit" value="Filter" />
     </p>
@@ -21,25 +25,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.name)
+                @Html.DisplayNameFor(model => model.Users[0].name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.role)
+                @Html.DisplayNameFor(model => model.Users[0].role)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Skill)
+                @Html.DisplayNameFor(model => model.Users[0].Skill)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.login)
+                @Html.DisplayNameFor(model => model.Users[0].login)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.password)
+                @Html.DisplayNameFor(model => model.Users[0].password)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Users) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.name)
