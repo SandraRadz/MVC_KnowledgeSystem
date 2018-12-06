@@ -19,9 +19,17 @@ namespace MvcKnowledgeSystem.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.User.ToListAsync());
+            var movies = from m in _context.User
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.name.Contains(searchString));
+            }
+
+            return View(await movies.ToListAsync());
         }
 
         // GET: Users/Details/5
