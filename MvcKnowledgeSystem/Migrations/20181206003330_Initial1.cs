@@ -11,6 +11,7 @@ namespace MvcKnowledgeSystem.Migrations
                 table: "User",
                 nullable: true);
         }
+         
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
