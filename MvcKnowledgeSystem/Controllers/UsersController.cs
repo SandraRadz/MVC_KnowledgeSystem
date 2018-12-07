@@ -109,7 +109,7 @@ namespace MvcKnowledgeSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,name,role, Skill, login,password")] User user)
         {
-            if (id != user.ID)
+            if (id != user.UserId)
             {
                 return NotFound();
             }
