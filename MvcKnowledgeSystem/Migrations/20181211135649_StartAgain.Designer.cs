@@ -9,8 +9,8 @@ using MvcKnowledgeSystem.Models;
 namespace MvcKnowledgeSystem.Migrations
 {
     [DbContext(typeof(MvcKnowledgeSystemContext))]
-    [Migration("20181206011601_Rating")]
-    partial class Rating
+    [Migration("20181211135649_StartAgain")]
+    partial class StartAgain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,33 @@ namespace MvcKnowledgeSystem.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("MvcKnowledgeSystem.Models.Skill", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("name");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Skill");
+                });
+
+            modelBuilder.Entity("MvcKnowledgeSystem.Models.Skillf", b =>
+                {
+                    b.Property<int>("SkillId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("SkillId");
+
+                    b.ToTable("Skillf");
+                });
 
             modelBuilder.Entity("MvcKnowledgeSystem.Models.User", b =>
                 {

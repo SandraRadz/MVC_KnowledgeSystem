@@ -21,31 +21,26 @@ namespace MvcKnowledgeSystem.Models
                     context.Skillf.AddRange(
                         new Skillf
                         {
-                            SkillId = 1,
                             Name = "C#"
                         },
 
                         new Skillf
                         {
-                            SkillId = 2,
                             Name = "C++"
                         },
 
                         new Skillf
                         {
-                            SkillId = 3,
                             Name = "C"
                         },
 
                         new Skillf
                         {
-                            SkillId = 4,
                             Name = "Java"
                         },
 
                         new Skillf
                         {
-                            SkillId = 5,
                             Name = "SQL"
                         }
                         );

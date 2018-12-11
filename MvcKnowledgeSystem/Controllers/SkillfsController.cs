@@ -19,9 +19,17 @@ namespace MvcKnowledgeSystem.Controllers
         }
 
         // GET: Skillfs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Skillf.ToListAsync());
+            var skills = from m in _context.Skillf
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                skills = skills.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(await skills.ToListAsync());
         }
 
         // GET: Skillfs/Details/5

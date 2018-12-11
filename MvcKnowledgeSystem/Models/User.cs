@@ -24,7 +24,6 @@ namespace MvcKnowledgeSystem.Models
         public string login { get; set; }
         [Display(Name = "Пароль")]
         public string password { get; set; }
-
     }
 
 }

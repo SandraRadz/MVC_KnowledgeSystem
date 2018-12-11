@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcKnowledgeSystem.Migrations
 {
-    public partial class SkillfMigr : Migration
+    public partial class StartAgain : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
