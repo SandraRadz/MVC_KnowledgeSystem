@@ -19,5 +19,7 @@ namespace MvcKnowledgeSystem.Models
         public DbSet<MvcKnowledgeSystem.Models.Skill> Skill { get; set; }
 
         public DbSet<MvcKnowledgeSystem.Models.Skillf> Skillf { get; set; }
+
+        public DbSet<MvcKnowledgeSystem.Models.Userf> Userf { get; set; }
     }
 }

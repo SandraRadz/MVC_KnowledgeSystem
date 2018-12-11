@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "EFCodeFirst/0.8.0": {
-        "type": "package",
-        "compile": {
-          "lib/EntityFramework.dll": {}
-        },
-        "runtime": {
-          "lib/EntityFramework.dll": {}
-        }
-      },
       "EntityFramework/6.2.0": {
         "type": "package",
         "compile": {
@@ -4642,27 +4633,19 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "T4Scaffolding/0.8.0": {
+      "T4Scaffolding/1.0.8": {
         "type": "package",
         "dependencies": {
-          "EFCodeFirst": "0.8.0"
+          "EntityFramework": "(, )",
+          "T4Scaffolding.Core": "(, )"
         }
+      },
+      "T4Scaffolding.Core/0.0.1": {
+        "type": "package"
       }
     }
   },
   "libraries": {
-    "EFCodeFirst/0.8.0": {
-      "sha512": "LOMCPBr6uRqCLVX4y+duSj1Gj9PRMgn06+lJ5CZJSA2lHKrYJcGhtNdpmKn0I4tP+xbZ86T27WlEbMI8Yv7HMw==",
-      "type": "package",
-      "path": "efcodefirst/0.8.0",
-      "files": [
-        ".signature.p7s",
-        "License.rtf",
-        "efcodefirst.0.8.0.nupkg.sha512",
-        "efcodefirst.nuspec",
-        "lib/EntityFramework.dll"
-      ]
-    },
     "EntityFramework/6.2.0": {
       "sha512": "7u/Xw6dnODaoB8opNC/Uz8nT/LKOxsvJhObYU+m0CErCXdOsyTC1MZwqQoam8lMehLTxBoMBewvWoOQUBaUKsQ==",
       "type": "package",
@@ -12351,33 +12334,36 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "T4Scaffolding/0.8.0": {
-      "sha512": "/PW00ZMpAsGyafT3Fo40K4lHgdP6sMSXFpSV1aPHBGvb0M48hUsYrU7eZrgXjhIdFRxAQUAnsZrkjnk71ZMFlg==",
+    "T4Scaffolding/1.0.8": {
+      "sha512": "23QhHboZLUgWAhutvu+226h9fIsrEU4kMhN0aWMQ4qeVjQi8SvRp773cQkzLezFJVXv7W8yZq6XAR0XNexdziA==",
       "type": "package",
-      "path": "t4scaffolding/0.8.0",
+      "path": "t4scaffolding/1.0.8",
       "files": [
         ".signature.p7s",
         "content/InstallationDummyFile.txt",
-        "t4scaffolding.0.8.0.nupkg.sha512",
+        "t4scaffolding.1.0.8.nupkg.sha512",
         "t4scaffolding.nuspec",
-        "tools/CustomScaffolder/DefaultPs1Script.ps1.t4",
-        "tools/CustomScaffolder/DefaultT4Template.cs.t4",
-        "tools/CustomScaffolder/DefaultT4Template.vb.t4",
-        "tools/CustomScaffolder/T4Scaffolding.CustomScaffolder.ps1",
-        "tools/CustomTemplate/T4Scaffolding.CustomTemplate.ps1",
         "tools/EFDbContext/DbContext.cs.t4",
         "tools/EFDbContext/DbContext.vb.t4",
+        "tools/EFDbContext/DbContextEntityMember.cs.t4",
+        "tools/EFDbContext/DbContextEntityMember.vb.t4",
         "tools/EFDbContext/T4Scaffolding.EFDbContext.ps1",
         "tools/EFRepository/Repository.cs.t4",
         "tools/EFRepository/Repository.vb.t4",
         "tools/EFRepository/T4Scaffolding.EFRepository.ps1",
-        "tools/Microsoft.VisualStudio.Helpers.dll",
-        "tools/T4Scaffolding.Format.ps1xml",
-        "tools/T4Scaffolding.dll",
         "tools/init.ps1",
-        "tools/install.ps1",
-        "tools/scaffoldingTabExpansion.psm1",
-        "tools/uninstall.ps1"
+        "tools/install.ps1"
+      ]
+    },
+    "T4Scaffolding.Core/0.0.1": {
+      "sha512": "56v+4gfiVXxhZ8GXRKMSQDwRbmQRm9N1qUd5qIEw8sGIwhE1OyUuApaMGZISWRKinJiQRT966DiteY5zg/VEHA==",
+      "type": "package",
+      "path": "t4scaffolding.core/0.0.1",
+      "files": [
+        ".signature.p7s",
+        "content/NewFile.txt",
+        "t4scaffolding.core.0.0.1.nupkg.sha512",
+        "t4scaffolding.core.nuspec"
       ]
     }
   },
@@ -12389,7 +12375,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.4",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
-      "MvcScaffolding >= 1.0.9"
+      "MvcScaffolding >= 1.0.9",
+      "T4Scaffolding >= 1.0.8"
     ]
   },
   "packageFolders": {
@@ -12466,6 +12453,10 @@
           "MvcScaffolding": {
             "target": "Package",
             "version": "[1.0.9, )"
+          },
+          "T4Scaffolding": {
+            "target": "Package",
+            "version": "[1.0.8, )"
           }
         },
         "imports": [
@@ -12481,18 +12472,8 @@
       "code": "NU1602",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "MvcScaffolding 1.0.9 does not provide an inclusive lower bound for dependency T4Scaffolding. An approximate best match of T4Scaffolding 0.8.0 was resolved.",
-      "libraryId": "T4Scaffolding",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'EFCodeFirst 0.8.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
-      "libraryId": "EFCodeFirst",
+      "message": "T4Scaffolding 1.0.8 does not provide an inclusive lower bound for dependency T4Scaffolding.Core. An approximate best match of T4Scaffolding.Core 0.0.1 was resolved.",
+      "libraryId": "T4Scaffolding.Core",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
       ]

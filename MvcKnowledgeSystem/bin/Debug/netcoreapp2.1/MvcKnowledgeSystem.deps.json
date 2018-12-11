@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "2c7c180ed8f633616df50e9409480d5aa83c7f6e"
+    "signature": "65867e019747504cf9daae31b5235723f091be37"
   },
   "compilationOptions": {
     "defines": [
@@ -30,7 +30,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "2.1.4",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
-          "MvcScaffolding": "1.0.9"
+          "MvcScaffolding": "1.0.9",
+          "T4Scaffolding": "1.0.8"
         },
         "runtime": {
           "MvcKnowledgeSystem.dll": {}
@@ -39,7 +40,6 @@
           "MvcKnowledgeSystem.dll": {}
         }
       },
-      "EFCodeFirst/0.8.0": {},
       "EntityFramework/6.2.0": {
         "runtime": {
           "lib/net45/EntityFramework.SqlServer.dll": {
@@ -448,7 +448,7 @@
       },
       "MvcScaffolding/1.0.9": {
         "dependencies": {
-          "T4Scaffolding": "0.8.0"
+          "T4Scaffolding": "1.0.8"
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -669,11 +669,13 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "T4Scaffolding/0.8.0": {
+      "T4Scaffolding/1.0.8": {
         "dependencies": {
-          "EFCodeFirst": "0.8.0"
+          "EntityFramework": "6.2.0",
+          "T4Scaffolding.Core": "0.0.1"
         }
       },
+      "T4Scaffolding.Core/0.0.1": {},
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
@@ -3523,13 +3525,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "EFCodeFirst/0.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LOMCPBr6uRqCLVX4y+duSj1Gj9PRMgn06+lJ5CZJSA2lHKrYJcGhtNdpmKn0I4tP+xbZ86T27WlEbMI8Yv7HMw==",
-      "path": "efcodefirst/0.8.0",
-      "hashPath": "efcodefirst.0.8.0.nupkg.sha512"
-    },
     "EntityFramework/6.2.0": {
       "type": "package",
       "serviceable": true,
@@ -3803,12 +3798,19 @@
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
     },
-    "T4Scaffolding/0.8.0": {
+    "T4Scaffolding/1.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/PW00ZMpAsGyafT3Fo40K4lHgdP6sMSXFpSV1aPHBGvb0M48hUsYrU7eZrgXjhIdFRxAQUAnsZrkjnk71ZMFlg==",
-      "path": "t4scaffolding/0.8.0",
-      "hashPath": "t4scaffolding.0.8.0.nupkg.sha512"
+      "sha512": "sha512-23QhHboZLUgWAhutvu+226h9fIsrEU4kMhN0aWMQ4qeVjQi8SvRp773cQkzLezFJVXv7W8yZq6XAR0XNexdziA==",
+      "path": "t4scaffolding/1.0.8",
+      "hashPath": "t4scaffolding.1.0.8.nupkg.sha512"
+    },
+    "T4Scaffolding.Core/0.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-56v+4gfiVXxhZ8GXRKMSQDwRbmQRm9N1qUd5qIEw8sGIwhE1OyUuApaMGZISWRKinJiQRT966DiteY5zg/VEHA==",
+      "path": "t4scaffolding.core/0.0.1",
+      "hashPath": "t4scaffolding.core.0.0.1.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",
