@@ -12,36 +12,41 @@ namespace MvcKnowledgeSystem.Models
             using (var context = new MvcKnowledgeSystemContext(
                 serviceProvider.GetRequiredService<DbContextOptions<MvcKnowledgeSystemContext>>()))
             {
-                if(context.Skill.Any() && context.User.Any())
+                if(context.Skillf.Any() && context.User.Any())
                 {
                     return;
                 }
 
-                if (!context.Skill.Any()) {
-                    context.Skill.AddRange(
-                        new Skill
+                if (!context.Skillf.Any()) {
+                    context.Skillf.AddRange(
+                        new Skillf
                         {
-                            name = "C#"
+                            SkillId = 1,
+                            Name = "C#"
                         },
 
-                        new Skill
+                        new Skillf
                         {
-                            name = "C++"
+                            SkillId = 2,
+                            Name = "C++"
                         },
 
-                        new Skill
+                        new Skillf
                         {
-                            name = "C"
+                            SkillId = 3,
+                            Name = "C"
                         },
 
-                        new Skill
+                        new Skillf
                         {
-                            name = "Java"
+                            SkillId = 4,
+                            Name = "Java"
                         },
 
-                        new Skill
+                        new Skillf
                         {
-                            name = "SQL"
+                            SkillId = 5,
+                            Name = "SQL"
                         }
                         );
                 }
