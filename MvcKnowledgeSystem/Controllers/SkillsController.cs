@@ -9,46 +9,29 @@ using MvcKnowledgeSystem.Models;
 
 namespace MvcKnowledgeSystem.Controllers
 {
-    public class UsersController : Controller
+    public class SkillsController : Controller
     {
-      
-
         private readonly MvcKnowledgeSystemContext _context;
 
-        public UsersController(MvcKnowledgeSystemContext context)
+        public SkillsController(MvcKnowledgeSystemContext context)
         {
             _context = context;
         }
 
-        // GET: Users
-        public async Task<IActionResult> Index(string userSkill, string searchString)
+        // GET: Skills
+        public async Task<IActionResult> Index(string searchString)
         {
-            // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.User
-                                            orderby m.Skill
-                                            select m.Skill;
-
-            var movies = from m in _context.User
+            var skills = from m in _context.Skill
                          select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(s => s.name.Contains(searchString));
+                skills = skills.Where(s => s.name.Contains(searchString));
             }
 
-            if (!String.IsNullOrEmpty(userSkill))
-            {
-                movies = movies.Where(x => x.Skill == userSkill);
-            }
-
-            var userSkillVM = new UserSkillViewModel();
-            userSkillVM.Skill = new SelectList(await genreQuery.Distinct().ToListAsync());
-            userSkillVM.Users = await movies.ToListAsync();
-            userSkillVM.SearchString = searchString;
-
-            return View(userSkillVM);
+            return View(await skills.ToListAsync());
         }
-        // GET: Users/Details/5
+        // GET: Skills/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,39 +39,39 @@ namespace MvcKnowledgeSystem.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var skill = await _context.Skill
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (skill == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(skill);
         }
 
-        // GET: Users/Create
+        // GET: Skills/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Skills/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,name,role, Skill, login,password")] User user)
+        public async Task<IActionResult> Create([Bind("ID,name")] Skill skill)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(skill);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(skill);
         }
 
-        // GET: Users/Edit/5
+        // GET: Skills/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,22 +79,22 @@ namespace MvcKnowledgeSystem.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            var skill = await _context.Skill.FindAsync(id);
+            if (skill == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(skill);
         }
 
-        // POST: Users/Edit/5
+        // POST: Skills/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,name,role, Skill, login,password")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,name")] Skill skill)
         {
-            if (id != user.ID)
+            if (id != skill.ID)
             {
                 return NotFound();
             }
@@ -120,12 +103,12 @@ namespace MvcKnowledgeSystem.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(skill);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.ID))
+                    if (!SkillExists(skill.ID))
                     {
                         return NotFound();
                     }
@@ -136,10 +119,10 @@ namespace MvcKnowledgeSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(skill);
         }
 
-        // GET: Users/Delete/5
+        // GET: Skills/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,30 +130,30 @@ namespace MvcKnowledgeSystem.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var skill = await _context.Skill
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (skill == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(skill);
         }
 
-        // POST: Users/Delete/5
+        // POST: Skills/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
+            var skill = await _context.Skill.FindAsync(id);
+            _context.Skill.Remove(skill);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool SkillExists(int id)
         {
-            return _context.User.Any(e => e.ID == id);
+            return _context.Skill.Any(e => e.ID == id);
         }
     }
 }

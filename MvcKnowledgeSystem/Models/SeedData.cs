@@ -12,13 +12,44 @@ namespace MvcKnowledgeSystem.Models
             using (var context = new MvcKnowledgeSystemContext(
                 serviceProvider.GetRequiredService<DbContextOptions<MvcKnowledgeSystemContext>>()))
             {
-                // Look for any movies.
-                if (context.User.Any())
+                if(context.Skill.Any() && context.User.Any())
                 {
-                    return;   // DB has been seeded
+                    return;
                 }
 
-                context.User.AddRange(
+                if (!context.Skill.Any()) {
+                    context.Skill.AddRange(
+                        new Skill
+                        {
+                            name = "C#"
+                        },
+
+                        new Skill
+                        {
+                            name = "C++"
+                        },
+
+                        new Skill
+                        {
+                            name = "C"
+                        },
+
+                        new Skill
+                        {
+                            name = "Java"
+                        },
+
+                        new Skill
+                        {
+                            name = "SQL"
+                        }
+                        );
+                }
+
+   // Look for any movies.
+                if (!context.User.Any())
+                {
+                    context.User.AddRange(
                      new User
                      {
                          name = "Alise May",
@@ -55,6 +86,9 @@ namespace MvcKnowledgeSystem.Models
                        password = "0000"
                    }
                 );
+                }
+
+                
                 context.SaveChanges();
             }
         }

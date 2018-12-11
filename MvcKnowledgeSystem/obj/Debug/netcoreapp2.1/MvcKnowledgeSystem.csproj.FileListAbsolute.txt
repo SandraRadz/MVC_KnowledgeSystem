@@ -35,3 +35,8 @@ C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netc
 C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Users\Details.g.cshtml.cs
 C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Users\Edit.g.cshtml.cs
 C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Skills\Create.g.cshtml.cs
+C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Skills\Delete.g.cshtml.cs
+C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Skills\Details.g.cshtml.cs
+C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Skills\Edit.g.cshtml.cs
+C:\Users\oleks\source\repos\MvcKnowledgeSystem\MvcKnowledgeSystem\obj\Debug\netcoreapp2.1\Razor\Views\Skills\Index.g.cshtml.cs
